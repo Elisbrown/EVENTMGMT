@@ -40,18 +40,30 @@
                 <a href="create.html">Create</a>
                 <a href="manage.html">Manage</a>
                 <a href="#about">About</a>
-
-                <!-- <div id="search">
-                    <input placeholder="Search by name" id="search-input" type="text"><button id="search-btn">Search</button>
-                </div> -->
             </div>
             
 
 <main>
-    <!-- <div class="addname">
-        <input type="text" id="name-input" placeholder="Enter name" > <button type="submit" id="add-name-btn">Add name</button>
-    </div> -->
+    
 <h1>Latest Events</h1>
+<div id="form-popup" class="hidden" style=" justify-content: space-between;">
+    <form action="#" id="myForm" style="text-align: left;justify-content: space-around; ">
+        <span class="close"><img src="../assets/svg/close-icon.svg" width="20px" height="20px" alt="close"></span>
+        <h2><span style="text-align: center;"><p>I want to attend this event</p></span></h2>
+        <label for="fname">Full name</label>
+        <input type="text" id="title" name="title" placeholder="Enter your Full name" required><br>
+        <label for="fname">Phone Number</label>
+        <input type="number" inputmode="tel" id="phone" name="phone" placeholder="ex. +1 (601)843-7434" required><br>
+        <label for="fname">Email</label>
+        <input type="email" id="title" name="title" placeholder="Enter your email" required><br><br>
+        <input type="checkbox" name="agree" id="agree" class="agree" required><label for="agree"> I agree to the <span style="color: blue;">terms and conditions</span> by applying to attend this event</label><br>
+        
+
+        <br><div class="controls">
+        <button type="submit" value="Submit" id="btn-submit" style="width: 48%; ">Book now</button><button type="reset" value="reset" style="width: 48%; background-color: rgb(241, 52, 52);">Cancel request</button>
+    </div>
+</form>
+</div>
 
 <div class="container">
     <div class="cards" id="cards">
@@ -168,43 +180,48 @@
                 100%; opacity: 100%;" id="book-btn">Book now</button></td></tr>
         </table>
     </div>
+
 </div>
-<!-- <table>
-    <thead>
-        <tr>
-            <th>Images</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Date</th><th>Time</th>
-            <th>Venue</th>
-            <th>Register</th>
-    </thead>
-    <tbody><tr><td colspan='7' style='opacity: 50%; padding: 20px 30px;' >No display data</td></tr></tbody>
-</table> -->
+
 
 
     </main>
     
-    <div id="form-popup" class="hidden" style=" justify-content: space-between;">
-        <form action="#" id="myForm" style="text-align: left;justify-content: space-around; ">
-            <h2><span style="text-align: center;"><p>I want to attend this event</p></span></h2>
-            <label for="fname">Full name</label>
-            <input type="text" id="title" name="title" placeholder="Your event title.." required><br>
-            <label for="fname">Phone Number</label>
-            <input type="number" inputmode="tel" id="phone" name="phone" placeholder="ex. +1 (601)843-7434" required><br>
-            <label for="fname">Email</label>
-            <input type="email" id="title" name="title" placeholder="Your event title.." required><br>
-            <input type="checkbox" name="agree" id="agree" class="agree" required><label for="agree"> I agree to the <span style="color: blue;">terms and conditions</span> by applying to attend this event</label>
-            
-
-            <br><div class="controls">
-            <button type="submit" value="Submit" id="btn-submit" style="width: 48%; ">Book now</button><button type="reset" value="reset" style="width: 48%; background-color: rgb(241, 52, 52);">Cancel request</button>
-        </div>
-    </form>
-    </div>
+   
 
 <script>
-    
+    // Get all the book now buttons
+let bookButtons = document.querySelectorAll('#book-btn');
+
+// Get the popup form
+let formPopup = document.getElementById('form-popup');
+
+// Function to show the popup form
+function showForm() {
+    formPopup.style.display = 'block';
+}
+
+// Add click event listener to all book now buttons
+for(let i = 0; i < bookButtons.length; i++) {
+    bookButtons[i].addEventListener('click', showForm);
+}
+
+// Get the cancel button
+let cancelButton = document.querySelector('button[type="reset"]');
+
+// Function to hide the popup form
+function hideForm() {
+    formPopup.style.display = 'none';
+}
+
+// Add click event listener to the cancel button
+cancelButton.addEventListener('click', hideForm);
+
+// Get the close button
+let closeButton = document.querySelector('.close');
+
+// Add click event listener to the close button
+closeButton.addEventListener('click', hideForm);
 
 </script>
 <script src="index.js"></script>
