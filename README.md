@@ -12,6 +12,7 @@ Before you begin, ensure you have met the following dependencies and requirement
 - install mutler (npm install mutler)
 - install cors (npm install cors)
 - install dotenv (npm install dotenv)
+- install the Live Server extension in VSCode and make sure the app.js file is listening on the same port as the Live server.
 
 - You have a MySQL server running.
 
@@ -27,6 +28,7 @@ To install Event Portal, follow these steps:
 
 This application uses a MySQL database. You need to create a database and a table named `events` with the following columns: `images`, `title`, `description`, `date`, `time`, `venue`.
 alternatively, there is a database file in the respective folder that could simply be imported into your local server. 
+- Run  the index.html file in the Client folder with Live server extension. Shortcut(Alt+L+O)
 
 Update the database connection details in `app.js`:
 
