@@ -15,12 +15,12 @@ connection.connect((err) => {
     if (err){
         console.log(err.message);
     }
-    console.log('db' + connection.state);
+    console.log('database ' + connection.state);
 })
 
 class DbService{
     static getDbServiceInstance(){
-        if (!instance) {
+        if (!instance) { 
             instance = new DbService();
         }
         return instance;
@@ -30,8 +30,8 @@ class DbService{
         try{
             const response = await new Promise((resolve, reject)  => {
                 const query="SELECT * FROM events;";
-                connection.query(query, (err, SpeechRecognitionResultList) => {
-                    if (err) reject(new Error(error.message));
+                connection.query(query, (err, _response) => {
+                    if (err) reject(new Error(err.message));
                     resolve(results);  
                 })
 
@@ -44,6 +44,24 @@ class DbService{
             console.log(error); 
         }
     }
-}
+    async InsertNewEvent(title){
+        try {
+            const insertID = await new Promise((resolve, reject)  => {
+                const query="INSERT INTO events (title) VALUES(?);";
+                connection.query(query, [title],(err, result) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(result.insertID);  
+                })
+
+            });
+
+            console.log(insertID);
+            // return response;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+} 
+
 
 module.exports.DbService;

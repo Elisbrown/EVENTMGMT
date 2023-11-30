@@ -3,9 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Management Portal</title>
+    <title>Welcome</title>
     <link rel="stylesheet" href="style.css">
-    <style></style>
+    <style>
+          /* Style the container */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 0 50px ;
+      .cards{
+        padding-top: 30px;
+      }
+      
+    }
+
+    /* Style the description */
+    .column p {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .container {
+        flex-wrap: wrap;
+      }
+    }
+    </style>
 </head>
 <body>
 
@@ -15,21 +41,135 @@
                 <a href="manage.html">Manage</a>
                 <a href="#about">About</a>
 
-                <div id="search">
+                <!-- <div id="search">
                     <input placeholder="Search by name" id="search-input" type="text"><button id="search-btn">Search</button>
-                </div>
-              </div>
+                </div> -->
+            </div>
             
-<hr>
-<main>
-  
-        <label for="name-input">Name: </label>
-        <input type="text" id="name-input" > <button id="add-name-btn">Add name</button>
-  
 
+<main>
+    <!-- <div class="addname">
+        <input type="text" id="name-input" placeholder="Enter name" > <button type="submit" id="add-name-btn">Add name</button>
+    </div> -->
 <h1>Latest Events</h1>
 
-<table>
+<div class="container">
+    <div class="cards" id="cards">
+        <table id="table1" style="width: 300px; border: 1px solid green; ">
+            <thead>
+                <tr><td colspan="2" style="padding: 0;"><img width="300px"  src="../assets/img1.jpg" alt="image of bear with cubs"></td></tr>
+                <tr style="border-bottom: none;"><td colspan="2" style="font-family: Arial, Helvetica, sans-serif; font-weight: bolder;">Save the bears</td></tr>
+            </thead>
+            <tbody style="border-bottom: 0; opacity: 60%;">
+                <tr><td colspan="2" style="text-align: left;"><span style="font-weight:bold ;">Description</span><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eligendi, repudiandae beatae saepe veritatis fugiat.</td></tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;">
+                <td><img src="../assets/svg/calendar-icon.svg" alt="calendar-icon"  width="20px" height="20px">    12/12/2023</td>
+                <td><img src="../assets/svg/clock-icon.svg" alt="clock-icon" width="20px" height="20px"> 23:00</td> <!--Make sure to add SVGs to demonstrate the various fields--->
+                </tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;" ><td colspan="2"><img src="../assets/svg/map-icon.svg" alt="location" width="20px" height="20px"> Bamenda City Council Hall</td></tr>
+                
+            </tbody>
+                <tr ><td colspan="2" style="padding: 0; max-width: 100%;"><button  style="width: 
+                100%; opacity: 100%;" id="book-btn">Book now</button></td></tr>
+        </table>
+    </div>
+    <div class="cards" id="cards">
+        <table id="table1" style="width: 300px; border: 1px solid green; ">
+            <thead>
+                <tr><td colspan="2" style="padding: 0;"><img width="300px"  src="../assets/img1.jpg" alt="image of bear with cubs"></td></tr>
+                <tr style="border-bottom: none;"><td colspan="2" style="font-family: Arial, Helvetica, sans-serif; font-weight: bolder;">Save the bears</td></tr>
+            </thead>
+            <tbody style="border-bottom: 0; opacity: 60%;">
+                <tr><td colspan="2" style="text-align: left;"><span style="font-weight:bold ;">Description</span><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eligendi, repudiandae beatae saepe veritatis fugiat.</td></tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;">
+                <td><img src="../assets/svg/calendar-icon.svg" alt="calendar-icon"  width="20px" height="20px">    12/12/2023</td>
+                <td><img src="../assets/svg/clock-icon.svg" alt="clock-icon" width="20px" height="20px"> 23:00</td> <!--Make sure to add SVGs to demonstrate the various fields--->
+                </tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;" ><td colspan="2"><img src="../assets/svg/map-icon.svg" alt="location" width="20px" height="20px"> Bamenda City Council Hall</td></tr>
+                
+            </tbody>
+                <tr ><td colspan="2" style="padding: 0; max-width: 100%;"><button  style="width: 
+                100%; opacity: 100%;" id="book-btn">Book now</button></td></tr>
+        </table>
+    </div>
+    <div class="cards" id="cards">
+        <table id="table1" style="width: 300px; border: 1px solid green; ">
+            <thead>
+                <tr><td colspan="2" style="padding: 0;"><img width="300px"  src="../assets/img1.jpg" alt="image of bear with cubs"></td></tr>
+                <tr style="border-bottom: none;"><td colspan="2" style="font-family: Arial, Helvetica, sans-serif; font-weight: bolder;">Save the bears</td></tr>
+            </thead>
+            <tbody style="border-bottom: 0; opacity: 60%;">
+                <tr><td colspan="2" style="text-align: left;"><span style="font-weight:bold ;">Description</span><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eligendi, repudiandae beatae saepe veritatis fugiat.</td></tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;">
+                <td><img src="../assets/svg/calendar-icon.svg" alt="calendar-icon"  width="20px" height="20px">    12/12/2023</td>
+                <td><img src="../assets/svg/clock-icon.svg" alt="clock-icon" width="20px" height="20px"> 23:00</td> <!--Make sure to add SVGs to demonstrate the various fields--->
+                </tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;" ><td colspan="2"><img src="../assets/svg/map-icon.svg" alt="location" width="20px" height="20px"> Bamenda City Council Hall</td></tr>
+                
+            </tbody>
+                <tr ><td colspan="2" style="padding: 0; max-width: 100%;"><button  style="width: 
+                100%; opacity: 100%;" id="book-btn">Book now</button></td></tr>
+        </table>
+    </div>
+    <div class="cards" id="cards">
+        <table id="table1" style="width: 300px; border: 1px solid green; ">
+            <thead>
+                <tr><td colspan="2" style="padding: 0;"><img width="300px"  src="../assets/img1.jpg" alt="image of bear with cubs"></td></tr>
+                <tr style="border-bottom: none;"><td colspan="2" style="font-family: Arial, Helvetica, sans-serif; font-weight: bolder;">Save the bears</td></tr>
+            </thead>
+            <tbody style="border-bottom: 0; opacity: 60%;">
+                <tr><td colspan="2" style="text-align: left;"><span style="font-weight:bold ;">Description</span><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eligendi, repudiandae beatae saepe veritatis fugiat.</td></tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;">
+                <td><img src="../assets/svg/calendar-icon.svg" alt="calendar-icon"  width="20px" height="20px">    12/12/2023</td>
+                <td><img src="../assets/svg/clock-icon.svg" alt="clock-icon" width="20px" height="20px"> 23:00</td> <!--Make sure to add SVGs to demonstrate the various fields--->
+                </tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;" ><td colspan="2"><img src="../assets/svg/map-icon.svg" alt="location" width="20px" height="20px"> Bamenda City Council Hall</td></tr>
+                
+            </tbody>
+                <tr ><td colspan="2" style="padding: 0; max-width: 100%;"><button  style="width: 
+                100%; opacity: 100%;" id="book-btn">Book now</button></td></tr>
+        </table>
+    </div>
+    <div class="cards" id="cards">
+        <table id="table1" style="width: 300px; border: 1px solid green; ">
+            <thead>
+                <tr><td colspan="2" style="padding: 0;"><img width="300px"  src="../assets/img1.jpg" alt="image of bear with cubs"></td></tr>
+                <tr style="border-bottom: none;"><td colspan="2" style="font-family: Arial, Helvetica, sans-serif; font-weight: bolder;">Save the bears</td></tr>
+            </thead>
+            <tbody style="border-bottom: 0; opacity: 60%;">
+                <tr><td colspan="2" style="text-align: left;"><span style="font-weight:bold ;">Description</span><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eligendi, repudiandae beatae saepe veritatis fugiat.</td></tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;">
+                <td><img src="../assets/svg/calendar-icon.svg" alt="calendar-icon"  width="20px" height="20px">    12/12/2023</td>
+                <td><img src="../assets/svg/clock-icon.svg" alt="clock-icon" width="20px" height="20px"> 23:00</td> <!--Make sure to add SVGs to demonstrate the various fields--->
+                </tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;" ><td colspan="2"><img src="../assets/svg/map-icon.svg" alt="location" width="20px" height="20px"> Bamenda City Council Hall</td></tr>
+                
+            </tbody>
+                <tr ><td colspan="2" style="padding: 0; max-width: 100%;"><button  style="width: 
+                100%; opacity: 100%;" id="book-btn">Book now</button></td></tr>
+        </table>
+    </div>
+    <div class="cards" id="cards">
+        <table id="table1" style="width: 300px; border: 1px solid green; ">
+            <thead>
+                <tr><td colspan="2" style="padding: 0;"><img width="300px"  src="../assets/img1.jpg" alt="image of bear with cubs"></td></tr>
+                <tr style="border-bottom: none;"><td colspan="2" style="font-family: Arial, Helvetica, sans-serif; font-weight: bolder;">Save the bears</td></tr>
+            </thead>
+            <tbody style="border-bottom: 0; opacity: 60%;">
+                <tr><td colspan="2" style="text-align: left;"><span style="font-weight:bold ;">Description</span><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi eligendi, repudiandae beatae saepe veritatis fugiat.</td></tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;">
+                <td><img src="../assets/svg/calendar-icon.svg" alt="calendar-icon"  width="20px" height="20px">    12/12/2023</td>
+                <td><img src="../assets/svg/clock-icon.svg" alt="clock-icon" width="20px" height="20px"> 23:00</td> <!--Make sure to add SVGs to demonstrate the various fields--->
+                </tr>
+                <tr style="color: green; font-weight: bolder; text-align: start;" ><td colspan="2"><img src="../assets/svg/map-icon.svg" alt="location" width="20px" height="20px"> Bamenda City Council Hall</td></tr>
+                
+            </tbody>
+                <tr ><td colspan="2" style="padding: 0; max-width: 100%;"><button  style="width: 
+                100%; opacity: 100%;" id="book-btn">Book now</button></td></tr>
+        </table>
+    </div>
+</div>
+<!-- <table>
     <thead>
         <tr>
             <th>Images</th>
@@ -39,13 +179,34 @@
             <th>Venue</th>
             <th>Register</th>
     </thead>
-    <tbody></tbody>
-</table>
+    <tbody><tr><td colspan='7' style='opacity: 50%; padding: 20px 30px;' >No display data</td></tr></tbody>
+</table> -->
 
 
     </main>
     
+    <div id="form-popup" class="hidden" style=" justify-content: space-between;">
+        <form action="#" id="myForm" style="text-align: left;justify-content: space-around; ">
+            <h2><span style="text-align: center;"><p>I want to attend this event</p></span></h2>
+            <label for="fname">Full name</label>
+            <input type="text" id="title" name="title" placeholder="Your event title.." required><br>
+            <label for="fname">Phone Number</label>
+            <input type="number" inputmode="tel" id="phone" name="phone" placeholder="ex. +1 (601)843-7434" required><br>
+            <label for="fname">Email</label>
+            <input type="email" id="title" name="title" placeholder="Your event title.." required><br>
+            <input type="checkbox" name="agree" id="agree" class="agree" required><label for="agree"> I agree to the <span style="color: blue;">terms and conditions</span> by applying to attend this event</label>
+            
 
+            <br><div class="controls">
+            <button type="submit" value="Submit" id="btn-submit" style="width: 48%; ">Book now</button><button type="reset" value="reset" style="width: 48%; background-color: rgb(241, 52, 52);">Cancel request</button>
+        </div>
+    </form>
+    </div>
+
+<script>
+    
+
+</script>
 <script src="index.js"></script>
 </body>
 </html>

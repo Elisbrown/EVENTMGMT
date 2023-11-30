@@ -1,20 +1,36 @@
-import { response } from "express";
+const multer = require('multer');
 
-document.addEventListener('DOMContentLoaded', function() {
+// Set storage engine
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'uploads/')
+  },
+  filename: function(req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+}); 
 
-   fetch('http://localhost:5000/getAll')
-   .then(response => response.json())
-   .then(data => loadHTMLTable(data['data']));
+// Init upload
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 10000000 }, // Limit file size to 10MB
+  fileFilter: function(req, file, cb) {
+    checkFileType(file, cb);
+  }
+}).array('images');
 
+// Check file type
+function checkFileType(file, cb) {
+  // Allowed extensions
+  const filetypes = /jpeg|jpg|png|gif/;
+  // Check extension
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  // Check mime type
+  const mimetype = filetypes.test(file.mimetype);
 
-
-}) 
-
-function loadHTMLTable(data){
-    const table = document.querySelector('table tbody');
-   
-    console.log(data);
-     if(data.length === 0){
-        table.innerHTML= "<tr><td colspan='7' style='opacity: 50%; padding: 20px 30px;' >No display data</td></tr>";
-     }
-}   
+  if (mimetype && extname) {
+    return cb(null, true);
+  } else {
+    cb('Error: Images Only!');
+  }
+}

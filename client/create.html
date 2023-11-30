@@ -3,48 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Management Portal</title>
+    <title>Create</title>
     <link rel="stylesheet" href="style.css">
-    <style></style>
+    <style>
+    </style>
 </head>
 <body>
 
-            <div class="topnav">
-                <a href="index.html">Home</a>
-                <a class="active" href="create.html">Create</a>
-                <a href="manage.html">Manage</a>
-                <a href="#about">About</a>
+<div class="topnav">
+    <a href="index.html">Home</a>
+    <a class="active" href="create.html">Create</a>
+    <a href="manage.html">Manage</a>
+    <a href="#about">About</a>
 
-                <div id="search">
-                    <input placeholder="Search by name" id="search-input" type="text"><button id="search-btn">Search</button>
-                </div>
-              </div>
-            
-<hr>
-<h1>Creator`s Dashboard</h1>
+    <div id="search">
+    </div>
+
+</div>
+
 <main>
-<h2>Preview</h2>
-<center>
-<table >
-    <thead>
-        <tr>
-            <th>Images</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Date</th><th>Time</th>
-            <th>Venue</th>
-            <th>Edit</th>
-            <th>Delete</th>
+    <h1>Welcome to the Dashboard</h1>
+    <button id="createNowBtn">Create Now</button>
+    <div id="create" style="display: none;">
+        <form action="http://localhost:5500/submit" method="POST" enctype="multipart/form-data" style="text-align: left;justify-content: space-around; ">
+            <h2><span><p>Event Creation</p></span></h2>
+            <label for="fname">Event Title</label>
+            <input type="text" id="title" name="title" placeholder="Your event title.." required><br>
 
+            <br> <label for="lname">Description</label>
+            <textarea id="description" name="description" minlength="50" required placeholder="Tell us about the event.." cols="30" rows="10"></textarea>
+            <span style="text-align: center; font-weight: bold; padding-bottom:none ;"><p>Pick date and time</p></span>
+            <input style="padding: 12px 10px; border: 1px solid #12b87b; background-color: #f2f2f2; border-radius: 10px;" type="date" name="date" required="required"> <input type="time" name="time" value="13:00"  data-seconds="false" required="required">
+           <br> <label for="fname">Venue</label>
+            <input type="text" id="venue" name="venue" placeholder="Enter the Venue" required><br><br>
+            <label for="images" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 200px; height: 200px; border: 2px dashed gray; background-color: #f2f2f2; text-align: center; padding: 10px;">
+                <input type="file" id="images" name="images" accept="image/*" multiple style="display: none;" required min="2">
+                <div id="image-preview" style="display: flex; flex-wrap: wrap; flex-direction: column-reverse;"></div>
+                <div id="image-count"></div>
+                <button id="addImagesBtn" style="margin-top: 10px; background-color: #353535; border: none; cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+                        <path d="M12 5v14M5 12h14" />
+                    </svg>
+                    Upload images
+                </button>
+            </label>
 
-    </thead>
-    <tbody></tbody>
-</table>
-</center>
+            <br><div class="controls">
+            <button type="submit" value="Submit" id="btn-submit" style="width: 48%; ">Submit</button><button type="reset" value="reset" style="width: 48%; background-color: rgb(241, 52, 52);">Cancel</button>
+        </div>
+    </form>
+    </div>
 
-    </main>
+    <h2>Preview</h2>
+    <center>
+        <table>
+            <thead>
+            <tr>
+                <th>Images</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Venue</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody><tr><td colspan='8' style='opacity: 50%; padding: 20px 30px;' >No display data</td></tr></tbody> 
+        </table>
+    </center>
+  
+</main> 
+
+ <script>
+                const createNowBtn = document.getElementById('createNowBtn');
+                const createDiv = document.getElementById('create');
+
+                createNowBtn.addEventListener('click', () => {
+                    if (createDiv.style.display === 'none') {
+                        createDiv.style.display = 'block';
+                    } else {
+                        createDiv.style.display = 'none';
+                    }
+                });
+
+                const imagesInput = document.getElementById('images');
+                const imagePreview = document.getElementById('image-preview');
+                const imageCount = document.getElementById('image-count');
+                const addImagesBtn = document.getElementById('addImagesBtn');
+
+                addImagesBtn.addEventListener('click', () => {
+                    imagesInput.click();
+                });
+
+                imagesInput.addEventListener('change', () => {
+                    imagePreview.innerHTML = '';
+                    const files = Array.from(imagesInput.files);
+                    imageCount.textContent = `Total Images: ${files.length}`;
+                    files.forEach((file, index) => {
+                        if (index === 0) {
+                            const reader = new FileReader();
+                            reader.onload = () => {
+                                const image = document.createElement('img');
+                                image.src = reader.result;
+                                image.style.width = '100px';
+                                image.style.height = '100px';
+                                image.style.margin = '5px';
+                                imagePreview.appendChild(image);
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                });
+
+                // Drag and drop feature
+                const dropArea = document.getElementById('image-preview');
+
+                dropArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropArea.classList.add('dragover');
+                });
+
+                dropArea.addEventListener('dragleave', () => {
+                    dropArea.classList.remove('dragover');
+                });
+
+                dropArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropArea.classList.remove('dragover');
+                    const files = Array.from(e.dataTransfer.files);
+                    imagePreview.innerHTML = '';
+                    imageCount.textContent = `Total Images: ${files.length}`;
+                    files.forEach((file, index) => {
+                        if (index === 0) {
+                            const reader = new FileReader();
+                            reader.onload = () => {
+                                const image = document.createElement('img');
+                                image.src = reader.result;
+                                image.style.width = '100px';
+                                image.style.height = '100px';
+                                image.style.margin = '5px';
+                                imagePreview.appendChild(image);
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                });
+</script>
+
+</main>
     
 
 <script src="./index.js"></script>
+<script src="../server/app.js"></script>
 </body>
 </html>

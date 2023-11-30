@@ -1,12 +1,82 @@
-
+body{
+  margin-bottom: 10%;
+ 
+  display: block;
+}
 main{
     width: 100%;
-    margin: 50px auto;
+    margin: 10px  auto;
     text-align: center;
-    overflow-x:auto
+    overflow-x:auto;
 }
+#add-name-btn, #search-btn, button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 12px 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-size-adjust: 10px;
+}
+#create{
+  border: 1px solid #04AA6D;
+  border-radius: 10px;
+  padding: 10px;
+  width: fit-content;
+  margin: 10px  auto;
+  text-align: center;
+  padding: 10px;
+  
+}
+
+#form-popup{
+  border: 1px solid #04AA6D;
+  border-radius: 10px;
+  padding: 10px;
+  width: fit-content;
+  margin: 10px  auto;
+  text-align: center;
+  padding: 10px;
+  display: none;
+}
+
+textarea{
+  width: 100%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #04AA6D;
+  border-radius: 10px;
+  margin: 1px;
+  font-size: 17px;
+  opacity: 0.6;
+}
+input[type=text], input[type=number], input[type=email]{
+  width:100%;
+  padding: 12px 20px;
+  margin: 8px auto;
+  box-sizing: border-box;
+  border: 1px solid #04AA6D;
+  border-radius: 10px;
+  margin: 1px;
+  font-size: 17px;
+  opacity: 0.6;
+}
+input[type=checkbox]{
+  box-sizing: border-box;
+  border: 1px solid #04AA6D;
+  color: #04AA6D;
+  margin: 1px;
+
+  opacity: 0.7;
+}
+
+
 .topnav {
-    background-color: #333;
+    background-color: #333; 
     overflow: hidden;
   }
   
@@ -14,7 +84,7 @@ main{
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 19px 25px;
     text-decoration: none;
     font-size: 17px;
   }
@@ -27,9 +97,10 @@ main{
   .topnav a.active {
     background-color: #04AA6D;
     color: white;
+    height: 100%;
   }
   #search{
-    padding: 10px;
+    padding: 5px;
     float: right;
   }
 
@@ -60,3 +131,83 @@ table {
     text-transform: capitalize;
     text-shadow: #333;
   }
+
+
+  /* Removes the clear button from date inputs */
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
+
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button { 
+  display: none;
+}
+
+/* Always display the drop down caret */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: #2c3e50;
+}
+
+/* A few custom styles for date inputs */
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  color: #95a5a6;
+  font-family: "Helvetica", arial, sans-serif;
+  font-size: 18px;
+  border:1px solid #ecf0f1;
+  background:#ecf0f1;
+  padding:5px;
+  width: 40%;
+  margin: 2% 5%;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+input[type="date"], focus {
+  color: #95a5a6;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+input[type="time"] {
+  width: fit-content;
+  background-color: #ecf0f1;
+  padding: 12px 20px;
+  color: #949fa0;
+  font-weight: bolder;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #04AA6D;
+  border-radius: 10px;
+  margin-left: 5%;
+  font-size: 17px;
+  opacity: 0.6;
+}
+
+label{
+  font-size: 15px;
+  font-weight: bold;
+}
+ 
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#table1 {
+  width: 300px;
+  margin: 10px;
+  border: 1px solid green;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    flex-wrap: nowrap;
+  }
+}
+/* css for caroussel*/ 
+
+ 
